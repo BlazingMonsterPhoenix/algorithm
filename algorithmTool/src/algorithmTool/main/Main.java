@@ -1,7 +1,9 @@
 package algorithmTool.main;
 
-import algorithmTool.arrayTool.abstractSortor.AbstractSortor;
-import algorithmTool.arrayTool.sortor.*;
+import java.util.ArrayDeque;
+
+import algorithmTool.arrayTool.abstractSortor.AbstractIntSortor;
+import algorithmTool.arrayTool.intSortor.*;
 import algorithmTool.arrayTools.reorderTool.IntArrayReorderTool;
 import algorithmTool.arrayTools.searcher.IntArrayElementSearcher;
 import algorithmTool.formula.caculator.Calculator;
@@ -15,14 +17,18 @@ public class Main {
 		{
 			a[i] = i + 1;
 		}*/
-		Calculator calculator = new Calculator();
-		try {
-			System.out.println(calculator.calculate("1+2*(--.2)/-0.1"));
-		} catch (FormulaException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		
 	}
+	
+	
+	/*Calculator calculator = new Calculator();
+	try {
+		System.out.println(calculator.calculate("1+2*(--.2)/-0.1"));
+	} catch (FormulaException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}*/
+	
 	
 	/*AbstractSortor s = new BubbleSortor();
 	int a[] = new int[] {5,4,9,1,3,8,2,6,7,0};

@@ -1,12 +1,12 @@
-package algorithmTool.arrayTool.sortor;
+package algorithmTool.arrayTool.intSortor;
 
-import algorithmTool.arrayTool.abstractSortor.AbstractSortor;
+import algorithmTool.arrayTool.abstractSortor.AbstractIntSortor;
 /**
  * 归并排序类
  * @author FieryPhoenix
  *
  */
-public class MergeSortor extends AbstractSortor {
+public class IntMergeSortor extends AbstractIntSortor {
 	
 	@Override
 	public int[] sort(int[] array, int start, int end) {

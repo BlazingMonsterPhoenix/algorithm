@@ -1,13 +1,13 @@
-package algorithmTool.arrayTool.sortor;
+package algorithmTool.arrayTool.intSortor;
 
-import algorithmTool.arrayTool.abstractSortor.AbstractSortor;
+import algorithmTool.arrayTool.abstractSortor.AbstractIntSortor;
 
 /**
  * 冒泡排序类
  * @author FieryPhoenix
  * 
  */
-public class BubbleSortor extends AbstractSortor {
+public class IntBubbleSortor extends AbstractIntSortor {
 
 	@Override
 	protected int[] sort(int[] array, int start, int end) {

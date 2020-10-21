@@ -3,7 +3,7 @@ package algorithmTool.arrayTool.abstractSortor;
  * 抽象排序类
  * @author FieryPhoenix
  */
-public abstract class AbstractSortor {
+public abstract class AbstractIntSortor {
 	
 	/**
 	 * 排序方法
@@ -22,13 +22,15 @@ public abstract class AbstractSortor {
 	
 	/**
 	 * 排序方法
-	 * @description 对一个整数数组进行从小到大排序
+	 * @description 对一个整数数组进行从小到大排序<br>
+	 * 				将排序后的结果放在一个新数组中并返回
 	 * @param array 进行排序的数组
 	 * @return 排序后的数组
 	 */
 	public int[] sort(int[] array)
 	{
-		return sort(array, 0, array.length - 1);
+		int[] newArray = array.clone();
+		return sort(newArray, 0, array.length - 1);
 	}
 	
 	/**

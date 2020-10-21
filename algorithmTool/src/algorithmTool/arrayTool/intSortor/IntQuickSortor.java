@@ -1,8 +1,8 @@
-package algorithmTool.arrayTool.sortor;
+package algorithmTool.arrayTool.intSortor;
 
-import algorithmTool.arrayTool.abstractSortor.AbstractSortor;
+import algorithmTool.arrayTool.abstractSortor.AbstractIntSortor;
 
-public class QuickSort extends AbstractSortor {
+public class IntQuickSortor extends AbstractIntSortor {
 	
 	@Override
 	protected int[] sort(int[] array, int start, int end) {
