@@ -1,10 +1,14 @@
-package algorithmTool.arrayTool.Sortor;
+package algorithmTool.arrayTools.Sortor;
 
 import java.math.BigDecimal;
 
-import algorithmTool.arrayTool.abstractSortor.AbstractSortor;
+import algorithmTool.arrayTools.abstractSortor.AbstractSortor;
 import algorithmTool.math.mathTools.MathTool;
-
+/**
+ * 快速排序类
+ * @author BlazingPhoenix
+ *
+ */
 public class QuickSortor extends AbstractSortor {
 	
 	/**

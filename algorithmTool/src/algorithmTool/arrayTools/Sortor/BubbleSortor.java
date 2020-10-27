@@ -1,22 +1,22 @@
-package algorithmTool.arrayTool.Sortor;
+package algorithmTool.arrayTools.Sortor;
 
 import java.math.BigDecimal;
 
-import algorithmTool.arrayTool.abstractSortor.AbstractSortor;
+import algorithmTool.arrayTools.abstractSortor.AbstractSortor;
 import algorithmTool.math.mathTools.MathTool;
 
 /**
- * 选择排序类
+ * 冒泡排序类
  * @author FieryPhoenix
- *
+ * 
  */
-public class SelectSortor extends AbstractSortor {
-
+public class BubbleSortor extends AbstractSortor {
+	
 	/**
 	 * BigDecimal构造方法
 	 * @param array 准备进行排序的BigDecimal数组
 	 */
-	public SelectSortor(BigDecimal[] array) {
+	public BubbleSortor(BigDecimal[] array) {
 		super(array);
 	}
 	
@@ -24,7 +24,7 @@ public class SelectSortor extends AbstractSortor {
 	 * 比特型构造方法
 	 * @param array 准备进行排序的比特型数组
 	 */
-	public SelectSortor(byte[] array)
+	public BubbleSortor(byte[] array)
 	{
 		super(array);
 	}
@@ -33,7 +33,7 @@ public class SelectSortor extends AbstractSortor {
 	 * 短整型构造方法
 	 * @param array 准备进行排序的短整型数组
 	 */
-	public SelectSortor(short[] array)
+	public BubbleSortor(short[] array)
 	{
 		super(array);
 	}
@@ -42,7 +42,7 @@ public class SelectSortor extends AbstractSortor {
 	 * 整型构造方法
 	 * @param array 准备进行排序的整型数据
 	 */
-	public SelectSortor(int[] array)
+	public BubbleSortor(int[] array)
 	{
 		super(array);
 	}
@@ -51,7 +51,7 @@ public class SelectSortor extends AbstractSortor {
 	 * 长整型构造方法
 	 * @param array 准备进行排序的长整型数组
 	 */
-	public SelectSortor(long[] array)
+	public BubbleSortor(long[] array)
 	{
 		super(array);
 	}
@@ -60,7 +60,7 @@ public class SelectSortor extends AbstractSortor {
 	 * 浮点型构造方法
 	 * @param array 准备进行排序的浮点型数组
 	 */
-	public SelectSortor(float[] array)
+	public BubbleSortor(float[] array)
 	{
 		super(array);
 	}
@@ -69,7 +69,7 @@ public class SelectSortor extends AbstractSortor {
 	 * 双精度浮点型构造方法
 	 * @param array 准备进行排序的双精度浮点型数组
 	 */
-	public SelectSortor(double[] array)
+	public BubbleSortor(double[] array)
 	{
 		super(array);
 	}
@@ -78,7 +78,7 @@ public class SelectSortor extends AbstractSortor {
 	 * 字符型构造方法
 	 * @param array 准备进行排序的字符型数组
 	 */
-	public SelectSortor(char[] array)
+	public BubbleSortor(char[] array)
 	{
 		super(array);
 	}
@@ -87,23 +87,23 @@ public class SelectSortor extends AbstractSortor {
 	 * 布尔型构造方法
 	 * @param array 准备进行排序的布尔型数组
 	 */
-	public SelectSortor(boolean[] array)
+	public BubbleSortor(boolean[] array)
 	{
 		super(array);
 	}
-	
-	
+
+	/**
+	 * 冒泡排序实现方法
+	 */
 	@Override
 	protected Object[] sort(int start, int end) {
-		for (int j = start; j < end; j++)
+		for (int j = end; j > start; j --)
 		{
-			int flag = j;
-			for (int i = j; i < end; i ++)
+			for (int i = start; i < j; i ++)
 			{
-				if (MathTool.leftOneIsBigger(array[flag], array[i + 1]))
-					flag = i + 1;
+				if (MathTool.leftOneIsBigger(array[i], array[i + 1]))
+					exchange(i, i + 1);
 			}
-			exchange(j, flag);
 		}
 		return array;
 	}
