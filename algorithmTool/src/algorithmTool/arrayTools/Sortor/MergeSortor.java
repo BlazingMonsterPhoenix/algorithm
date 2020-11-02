@@ -6,7 +6,7 @@ import algorithmTool.arrayTools.abstractSortor.AbstractSortor;
 import algorithmTool.math.mathTools.MathTool;
 /**
  * 归并排序类
- * @author FieryPhoenix
+ * @author BlazingPhoenix
  *
  */
 public class MergeSortor extends AbstractSortor {

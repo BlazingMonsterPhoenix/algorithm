@@ -7,7 +7,7 @@ import algorithmTool.math.mathTools.MathTool;
 
 /**
  * 选择排序类
- * @author FieryPhoenix
+ * @author BlazingPhoenix
  *
  */
 public class SelectSortor extends AbstractSortor {

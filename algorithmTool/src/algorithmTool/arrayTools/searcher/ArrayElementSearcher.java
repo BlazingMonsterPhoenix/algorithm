@@ -1,10 +1,10 @@
 package algorithmTool.arrayTools.searcher;
 /**
  * 整数数组元素搜索
- * @author FairyPhoenix
+ * @author BlazingPhoenix
  *
  */
-public class IntArrayElementSearcher {
+public class ArrayElementSearcher {
 
 	/**
 	 * 二分查找法外部调用方法
@@ -45,7 +45,7 @@ public class IntArrayElementSearcher {
 	 * @param key 查询的元素
 	 * @return 若array中存在key，返回key的下标，否则返回-1
 	 */
-	public static int search(int[] array, int key)
+	private static int search(int[] array, int key)
 	{
 		int i = array.length - 1;
 		for (; i >= -1; i --)

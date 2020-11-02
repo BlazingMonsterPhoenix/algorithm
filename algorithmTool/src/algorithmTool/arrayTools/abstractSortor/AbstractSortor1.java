@@ -1,4 +1,4 @@
-package algorithmTool.arrayTool.abstractSortor;
+package algorithmTool.arrayTools.abstractSortor;
 
 import java.math.BigDecimal;
 /**

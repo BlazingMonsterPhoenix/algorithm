@@ -7,7 +7,7 @@ import algorithmTool.math.mathTools.MathTool;
 
 /**
  * 冒泡排序类
- * @author FieryPhoenix
+ * @author BlazingPhoenix
  * 
  */
 public class BubbleSortor extends AbstractSortor {

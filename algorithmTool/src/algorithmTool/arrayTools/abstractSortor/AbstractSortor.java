@@ -128,13 +128,13 @@ public abstract class AbstractSortor {
 	}
 	
 	/**
-	 * 排序方法
+	 * 获取排序时间
 	 * @deprecated
 	 * @description 对一个整数数组进行从小到大排序，输出排序所用的时间<br>
 	 * 				主要用于测试
 	 * @param array 进行排序的数组
 	 */
-	public void sort(int a)
+	public void getSortTime()
 	{
 		long startTime = System.currentTimeMillis();
 		sort(0, array.length - 1);

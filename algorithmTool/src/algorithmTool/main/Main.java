@@ -1,35 +1,28 @@
 package algorithmTool.main;
 
-import java.math.BigDecimal;
-import java.util.ArrayDeque;
-
-import algorithmTool.arrayTool.abstractSortor.AbstractIntSortor;
-import algorithmTool.arrayTool.intSortor.*;
+import algorithmTool.arrayTools.Sortor.*;
+import algorithmTool.arrayTools.abstractSortor.AbstractSortor;
 import algorithmTool.arrayTools.reorderTool.IntArrayReorderTool;
-import algorithmTool.arrayTools.searcher.IntArrayElementSearcher;
+import algorithmTool.arrayTools.searcher.ArrayElementSearcher;
 import algorithmTool.formula.caculator.Calculator;
 import algorithmTool.formula.exception.FormulaException;
 
 public class Main {
 
 	public static void main(String[] args) {
-		Character c = new Character('b');
-		BigDecimal ret = null;
-		if (c instanceof Character)
+		/*for (int t = 0; t < 20; t ++)
 		{
-			ret = new BigDecimal((Character)c);
-		}
-		System.out.println(ret);
+			int a[] = new int[100000];
+			for (int i = 0; i < a.length; i ++)
+				a[i] = i + 1;
+			IntArrayReorderTool.disaster(a);
+			AbstractSortor ms = new MergeSortor(a);
+			AbstractSortor qs = new QuickSortor(a);
+			qs.getSortTime();
+			ms.getSortTime();
+			System.out.println();
+		}*/
+		
 	}
-	
-	public String judgeType(Object temp) {
-        if (temp instanceof Byte) {
-            return "是Byte类型";
-        } else if (temp instanceof Integer) {
-            return "是Integer类型";
-        } else {
-            return "是其他类型";
-        }
-    }
 	
 }

@@ -2,7 +2,11 @@ package algorithmTool.math.mathTools;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
-
+/**
+ * 数字操作工具
+ * @author BlazingPhoenix
+ *
+ */
 public class MathTool {
 	
 	/**

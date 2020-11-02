@@ -6,7 +6,7 @@ import algorithmTool.arrayTools.abstractSortor.AbstractSortor;
 import algorithmTool.math.mathTools.MathTool;
 /**
  * 插入排序类
- * @author FieryPhoenix
+ * @author BlazingPhoenix
  *
  */
 public class InsertSortor extends AbstractSortor {

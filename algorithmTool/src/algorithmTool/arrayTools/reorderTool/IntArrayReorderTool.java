@@ -1,5 +1,8 @@
 package algorithmTool.arrayTools.reorderTool;
-
+/**
+ * 数组重排序工具
+ * @author BlazingPhoenix
+ */
 public class IntArrayReorderTool {
 	
 	/**
