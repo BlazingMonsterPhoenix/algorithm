@@ -3,7 +3,7 @@ package algorithmTool.arrayTools.reorderTool;
  * 数组重排序工具
  * @author BlazingPhoenix
  */
-public class IntArrayReorderTool {
+public class ArrayReorderTool {
 	
 	/**
 	 * 随机打乱整数数组
@@ -12,23 +12,25 @@ public class IntArrayReorderTool {
 	 * 				打乱效果不理想，因为结果分布不均匀
 	 * @param array 等待被打乱的数组
 	 */
-	public static void disaster(int[] array)
+	public static Object[] disaster(Object[] array)
 	{
 		for (int i = 0; i < array.length; i ++)
 		{
 			int x = (int)(Math.random() * array.length);
 			exchange(array, i, x);
 		}
+		return array;
 	}
 	
 	/**
 	 * 将整数数组倒转
 	 * @param array 倒转的整数数组
 	 */
-	public static void reverse(int[] array)
+	public static Object[] reverse(Object[] array)
 	{
 		for (int i = 0; i < array.length / 2; i ++)
 			exchange(array, i, array.length - 1 - i);
+		return array;
 	}
 	
 	/**
@@ -38,9 +40,9 @@ public class IntArrayReorderTool {
 	 * @param index1  其中一个参与交换的元素的下标
 	 * @param index2  另一个参与交换的元素的下标
 	 */
-	protected static void exchange(int[] array, int index1, int index2)
+	protected static void exchange(Object[] array, int index1, int index2)
 	{
-		int a = array[index1];
+		Object a = array[index1];
 		array[index1] = array[index2];
 		array[index2] = a;
 	}

@@ -1,4 +1,7 @@
 package algorithmTool.arrayTools.searcher;
+
+import algorithmTool.math.mathTools.MathTool;
+
 /**
  * 整数数组元素搜索
  * @author BlazingPhoenix
@@ -12,7 +15,7 @@ public class ArrayElementSearcher {
 	 * @param key 查询的元素
 	 * @return 若array中存在key，返回key的下标，否则返回-1
 	 */
-	public static int dichotomySearch(int[] array, int key)
+	public static int dichotomySearch(Object[] array, Object key)
 	{
 		return dichotomySearch(array,key,0,array.length - 1);
 	}
@@ -28,13 +31,13 @@ public class ArrayElementSearcher {
 	 * @param right 查询范围的最右侧元素下标
 	 * @return 元素的下标（如果数组中不存在查询的元素，返回-1）
 	 */
-	private static int dichotomySearch(int[] array, int key, int left, int right)
+	private static int dichotomySearch(Object[] array, Object key, int left, int right)
 	{
 		int centre = (left + right) / 2;
 		if (array[centre] == key)
 			return centre;
 		else if (centre != left)
-			return array[centre] > array[key] ? 
+			return MathTool.leftOneIsBigger(array[centre], key) ? 
 					dichotomySearch(array,key,left,centre) : dichotomySearch(array,key,centre,right);
 		return -1;
 	}
@@ -45,7 +48,7 @@ public class ArrayElementSearcher {
 	 * @param key 查询的元素
 	 * @return 若array中存在key，返回key的下标，否则返回-1
 	 */
-	private static int search(int[] array, int key)
+	public static int search(Object[] array, Object key)
 	{
 		int i = array.length - 1;
 		for (; i >= -1; i --)
