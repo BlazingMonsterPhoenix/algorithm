@@ -8,7 +8,7 @@ import algorithmTool.math.mathTools.MathTool;
  *
  */
 public class ArrayElementSearcher {
-
+	
 	/**
 	 * 二分查找法外部调用方法
 	 * @param array 查询的数组

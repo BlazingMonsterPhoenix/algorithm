@@ -93,7 +93,6 @@ public class ShellSortor extends AbstractSortor{
 
 	@Override
 	protected Object[] sort(int start, int end) {
-		
 		return array;
 	}
 	
