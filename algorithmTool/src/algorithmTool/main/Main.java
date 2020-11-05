@@ -10,18 +10,11 @@ import algorithmTool.formula.exception.FormulaException;
 public class Main {
 
 	public static void main(String[] args) {
-		/*for (int t = 0; t < 20; t ++)
-		{
-			int a[] = new int[100000];
-			for (int i = 0; i < a.length; i ++)
-				a[i] = i + 1;
-			IntArrayReorderTool.disaster(a);
-			AbstractSortor ms = new MergeSortor(a);
-			AbstractSortor qs = new QuickSortor(a);
-			qs.getSortTime();
-			ms.getSortTime();
-			System.out.println();
-		}*/
+		int a[] = new int[]{10,5,6,4,3,9,7,8,2,0};
+		AbstractSortor s = new ShellSortor(a);
+		Object[] ia = s.sort();
+		for (int i = 0; i < ia.length; i ++)
+			System.out.println(ia[i]);
 	}
 	
 }
