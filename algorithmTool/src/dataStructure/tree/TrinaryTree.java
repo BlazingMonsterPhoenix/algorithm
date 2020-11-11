@@ -105,7 +105,7 @@ public class TrinaryTree {
 				flag = flag.getMiddle();
 			flag.setMiddle(tree);
 		}
-		else if (compareTo(tree) == 1)
+		else if (compareTo(tree) == -1)
 		{
 			if (flag.getRight() == null)
 				flag.setRight(tree);
@@ -119,6 +119,22 @@ public class TrinaryTree {
 			else
 				flag.getLeft().add(tree);
 		}
+	}
+	
+	/**
+	 * 获取中子树深度
+	 * @return 深度
+	 */
+	public int getDepthOfMiddle()
+	{
+		int depth = 0;
+		TrinaryTree flag = this;
+		while(flag != null)
+		{
+			flag = flag.getMiddle();
+			depth ++;
+		}
+		return depth;
 	}
 	
 	/**
