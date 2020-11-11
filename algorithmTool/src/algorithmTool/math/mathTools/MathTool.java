@@ -10,7 +10,7 @@ import java.math.BigInteger;
 public class MathTool {
 	
 	/**
-	 * 比较两个引用类型的大小
+	 * 判断left是否大于right
 	 * @description 判断左引用类型是否大于右引用类型<br>
 	 * 				主要用于比较八种基本类型的封装类
 	 * @param left 左引用类型
@@ -20,6 +20,20 @@ public class MathTool {
 	public static boolean leftOneIsBigger(Object left, Object right)
 	{
 		return getBigDecimal(left).compareTo(getBigDecimal(right)) == 1;
+	}
+	
+	/**
+	 * 比较两个引用类型的大小
+	 * @description 判断左引用类型是否大于右引用类型<br>
+	 * 				若相等，则返回0，left比right大则返回1，否则返回-1<br>
+	 * 				主要用于比较八种基本类型的封装类
+	 * @param left 左引用类型
+	 * @param right 右引用类型
+	 * @return 比较结果
+	 */
+	public static int compare(Object left, Object right)
+	{
+		return getBigDecimal(left).compareTo(getBigDecimal(right));
 	}
 	
 	/**
