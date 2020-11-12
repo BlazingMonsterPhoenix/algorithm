@@ -91,6 +91,79 @@ public class QuickSortor extends AbstractSortor {
 		super(array);
 	}
 	
+	/**
+	 * Byte构造方法
+	 * @param array 准备进行排序的Byte数组
+	 */
+	public QuickSortor(Byte[] array)
+	{
+		super(array);
+	}
+	
+	/**
+	 * Short构造方法
+	 * @param array 准备进行排序的Short数组
+	 */
+	public QuickSortor(Short[] array)
+	{
+		super(array);
+	}
+	
+	/**
+	 * Integer构造方法
+	 * @param array 准备进行排序的Integer数组
+	 */
+	public QuickSortor(Integer[] array)
+	{
+		super(array);
+	}
+	
+	/**
+	 * Long构造方法
+	 * @param array 准备进行排序的Long数组
+	 */
+	public QuickSortor(Long[] array)
+	{
+		super(array);
+	}
+	
+	
+	/**
+	 * Float构造方法
+	 * @param array 准备进行排序的Float数组
+	 */
+	public QuickSortor(Float[] array)
+	{
+		super(array);
+	}
+	
+	/**
+	 * Double构造方法
+	 * @param array 准备进行排序的Double数组
+	 */
+	public QuickSortor(Double[] array)
+	{
+		super(array);
+	}
+	
+	/**
+	 * Character构造方法
+	 * @param array 准备进行排序的Character数组
+	 */
+	public QuickSortor(Character[] array)
+	{
+		super(array);
+	}
+	
+	/**
+	 * Boolean构造方法
+	 * @param array 准备进行排序的Boolean数组
+	 */
+	public QuickSortor(Boolean[] array)
+	{
+		super(array);
+	}
+	
 	@Override
 	protected Object[] sort(int start, int end) {
 		if (end - start <= 0)

@@ -92,6 +92,78 @@ public class SelectSortor extends AbstractSortor {
 		super(array);
 	}
 	
+	/**
+	 * Byte构造方法
+	 * @param array 准备进行排序的Byte数组
+	 */
+	public SelectSortor(Byte[] array)
+	{
+		super(array);
+	}
+	
+	/**
+	 * Short构造方法
+	 * @param array 准备进行排序的Short数组
+	 */
+	public SelectSortor(Short[] array)
+	{
+		super(array);
+	}
+	
+	/**
+	 * Integer构造方法
+	 * @param array 准备进行排序的Integer数组
+	 */
+	public SelectSortor(Integer[] array)
+	{
+		super(array);
+	}
+	
+	/**
+	 * Long构造方法
+	 * @param array 准备进行排序的Long数组
+	 */
+	public SelectSortor(Long[] array)
+	{
+		super(array);
+	}
+	
+	
+	/**
+	 * Float构造方法
+	 * @param array 准备进行排序的Float数组
+	 */
+	public SelectSortor(Float[] array)
+	{
+		super(array);
+	}
+	
+	/**
+	 * Double构造方法
+	 * @param array 准备进行排序的Double数组
+	 */
+	public SelectSortor(Double[] array)
+	{
+		super(array);
+	}
+	
+	/**
+	 * Character构造方法
+	 * @param array 准备进行排序的Character数组
+	 */
+	public SelectSortor(Character[] array)
+	{
+		super(array);
+	}
+	
+	/**
+	 * Boolean构造方法
+	 * @param array 准备进行排序的Boolean数组
+	 */
+	public SelectSortor(Boolean[] array)
+	{
+		super(array);
+	}
 	
 	@Override
 	protected Object[] sort(int start, int end) {
