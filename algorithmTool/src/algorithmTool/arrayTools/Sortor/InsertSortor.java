@@ -92,6 +92,79 @@ public class InsertSortor extends AbstractSortor {
 	}
 	
 	/**
+	 * Byte构造方法
+	 * @param array 准备进行排序的Byte数组
+	 */
+	public InsertSortor(Byte[] array)
+	{
+		super(array);
+	}
+	
+	/**
+	 * Short构造方法
+	 * @param array 准备进行排序的Short数组
+	 */
+	public InsertSortor(Short[] array)
+	{
+		super(array);
+	}
+	
+	/**
+	 * Integer构造方法
+	 * @param array 准备进行排序的Integer数组
+	 */
+	public InsertSortor(Integer[] array)
+	{
+		super(array);
+	}
+	
+	/**
+	 * Long构造方法
+	 * @param array 准备进行排序的Long数组
+	 */
+	public InsertSortor(Long[] array)
+	{
+		super(array);
+	}
+	
+	
+	/**
+	 * Float构造方法
+	 * @param array 准备进行排序的Float数组
+	 */
+	public InsertSortor(Float[] array)
+	{
+		super(array);
+	}
+	
+	/**
+	 * Double构造方法
+	 * @param array 准备进行排序的Double数组
+	 */
+	public InsertSortor(Double[] array)
+	{
+		super(array);
+	}
+	
+	/**
+	 * Character构造方法
+	 * @param array 准备进行排序的Character数组
+	 */
+	public InsertSortor(Character[] array)
+	{
+		super(array);
+	}
+	
+	/**
+	 * Boolean构造方法
+	 * @param array 准备进行排序的Boolean数组
+	 */
+	public InsertSortor(Boolean[] array)
+	{
+		super(array);
+	}
+	
+	/**
 	 * 插入排序实现方法
 	 */
 	@Override

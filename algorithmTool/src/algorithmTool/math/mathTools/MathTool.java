@@ -49,7 +49,7 @@ public class MathTool {
                 ret = new BigDecimal((BigInteger)value);  
             }
             else {
-                throw new ClassCastException("Not possible to coerce ["+value+"] from class "+value.getClass()+" into a BigDecimal.");  
+                throw new ClassCastException("Not possible to coerce ["+value+"] from "+value.getClass()+" into a BigDecimal.");  
             }
         }  
         return ret;  

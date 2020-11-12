@@ -109,10 +109,78 @@ public abstract class AbstractSortor {
 		this.array = array.clone();
 	}
 	
-	/*public AbstractSortor(Object[] array)
+	/**
+	 * Byte构造方法
+	 * @param array 准备进行排序的Byte数组
+	 */
+	public AbstractSortor(Byte[] array)
 	{
 		this.array = array.clone();
-	}*/
+	}
+	
+	/**
+	 * Short构造方法
+	 * @param array 准备进行排序的Short数组
+	 */
+	public AbstractSortor(Short[] array)
+	{
+		this.array = array.clone();
+	}
+	
+	/**
+	 * Integer构造方法
+	 * @param array 准备进行排序的Integer数组
+	 */
+	public AbstractSortor(Integer[] array)
+	{
+		this.array = array.clone();
+	}
+	
+	/**
+	 * Long构造方法
+	 * @param array 准备进行排序的Long数组
+	 */
+	public AbstractSortor(Long[] array)
+	{
+		this.array = array.clone();
+	}
+	
+	
+	/**
+	 * Float构造方法
+	 * @param array 准备进行排序的Float数组
+	 */
+	public AbstractSortor(Float[] array)
+	{
+		this.array = array.clone();
+	}
+	
+	/**
+	 * Double构造方法
+	 * @param array 准备进行排序的Double数组
+	 */
+	public AbstractSortor(Double[] array)
+	{
+		this.array = array.clone();
+	}
+	
+	/**
+	 * Character构造方法
+	 * @param array 准备进行排序的Character数组
+	 */
+	public AbstractSortor(Character[] array)
+	{
+		this.array = array.clone();
+	}
+	
+	/**
+	 * Boolean构造方法
+	 * @param array 准备进行排序的Boolean数组
+	 */
+	public AbstractSortor(Boolean[] array)
+	{
+		this.array = array.clone();
+	}
 	
 	/**
 	 * 元素交换
