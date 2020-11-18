@@ -122,12 +122,13 @@ public class TrinaryTree {
 	}
 	
 	/**
-	 * 获取中子树深度
+	 * 获取树的深度
+	 * @description 
 	 * @return 深度
 	 */
-	public int getDepthOfMiddle()
+	public int getDepth()
 	{
-		int depth = 0;
+		int depth = 1;
 		TrinaryTree flag = this;
 		while(flag != null)
 		{
@@ -136,6 +137,7 @@ public class TrinaryTree {
 		}
 		return depth;
 	}
+	
 	
 	/**
 	 * object构造方法
