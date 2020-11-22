@@ -12,7 +12,9 @@ public class MathTool {
 	/**
 	 * 判断两个引用类型的大小
 	 * @description 判断左引用类型是否大于右引用类型<br>
-	 * 				主要用于比较八种基本类型的封装类
+	 * 				主要用于比较八种基本类型的封装类<br>
+	 * 				字符串类型和BigDecimal类型<br>
+	 * 				若两个引用类型不属于这几种类型，则抛出异常
 	 * @param left 左引用类型
 	 * @param right 右引用类型
 	 * @return 左引用类型大于右引用类型
@@ -35,6 +37,7 @@ public class MathTool {
 	{
 		return getBigDecimal(left).compareTo(getBigDecimal(right));
 	}
+	
 	/**
 	 * 将一个引用类型转化为BigDecimal
 	 * @param value 需要进行转化的引用类型
@@ -66,6 +69,18 @@ public class MathTool {
             }
         }  
         return ret;  
-    }  
+    } 
+	
+	/**
+	 * 判断一个引用类型能否转换为BigDecimal类型
+	 * @param value 引用类型
+	 * @return 能否转换为BigDecimal，能则返回true
+	 */
+	public static boolean canBeConvertedIntoBigDecimal(Object value)
+	{
+		if (value instanceof Number || value instanceof Character || value instanceof Boolean || value instanceof BigDecimal || value instanceof BigInteger || value instanceof String)
+			return true;
+		return false;
+	}
 	
 }

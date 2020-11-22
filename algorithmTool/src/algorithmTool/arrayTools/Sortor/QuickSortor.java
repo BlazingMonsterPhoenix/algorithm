@@ -12,160 +12,10 @@ import algorithmTool.math.mathTools.MathTool;
 public class QuickSortor extends AbstractSortor {
 	
 	/**
-	 * BigDecimal构造方法
-	 * @param array 准备进行排序的BigDecimal数组
+	 * 快速排序实现方法
 	 */
-	public QuickSortor(BigDecimal[] array) {
-		super(array);
-	}
-	
-	/**
-	 * 比特型构造方法
-	 * @param array 准备进行排序的比特型数组
-	 */
-	public QuickSortor(byte[] array)
-	{
-		super(array);
-	}
-	
-	/**
-	 * 短整型构造方法
-	 * @param array 准备进行排序的短整型数组
-	 */
-	public QuickSortor(short[] array)
-	{
-		super(array);
-	}
-	
-	/**
-	 * 整型构造方法
-	 * @param array 准备进行排序的整型数据
-	 */
-	public QuickSortor(int[] array)
-	{
-		super(array);
-	}
-	
-	/**
-	 * 长整型构造方法
-	 * @param array 准备进行排序的长整型数组
-	 */
-	public QuickSortor(long[] array)
-	{
-		super(array);
-	}
-	
-	/**
-	 * 浮点型构造方法
-	 * @param array 准备进行排序的浮点型数组
-	 */
-	public QuickSortor(float[] array)
-	{
-		super(array);
-	}
-	
-	/**
-	 * 双精度浮点型构造方法
-	 * @param array 准备进行排序的双精度浮点型数组
-	 */
-	public QuickSortor(double[] array)
-	{
-		super(array);
-	}
-	
-	/**
-	 * 字符型构造方法
-	 * @param array 准备进行排序的字符型数组
-	 */
-	public QuickSortor(char[] array)
-	{
-		super(array);
-	}
-	
-	/**
-	 * 布尔型构造方法
-	 * @param array 准备进行排序的布尔型数组
-	 */
-	public QuickSortor(boolean[] array)
-	{
-		super(array);
-	}
-	
-	/**
-	 * Byte构造方法
-	 * @param array 准备进行排序的Byte数组
-	 */
-	public QuickSortor(Byte[] array)
-	{
-		super(array);
-	}
-	
-	/**
-	 * Short构造方法
-	 * @param array 准备进行排序的Short数组
-	 */
-	public QuickSortor(Short[] array)
-	{
-		super(array);
-	}
-	
-	/**
-	 * Integer构造方法
-	 * @param array 准备进行排序的Integer数组
-	 */
-	public QuickSortor(Integer[] array)
-	{
-		super(array);
-	}
-	
-	/**
-	 * Long构造方法
-	 * @param array 准备进行排序的Long数组
-	 */
-	public QuickSortor(Long[] array)
-	{
-		super(array);
-	}
-	
-	
-	/**
-	 * Float构造方法
-	 * @param array 准备进行排序的Float数组
-	 */
-	public QuickSortor(Float[] array)
-	{
-		super(array);
-	}
-	
-	/**
-	 * Double构造方法
-	 * @param array 准备进行排序的Double数组
-	 */
-	public QuickSortor(Double[] array)
-	{
-		super(array);
-	}
-	
-	/**
-	 * Character构造方法
-	 * @param array 准备进行排序的Character数组
-	 */
-	public QuickSortor(Character[] array)
-	{
-		super(array);
-	}
-	
-	/**
-	 * Boolean构造方法
-	 * @param array 准备进行排序的Boolean数组
-	 */
-	public QuickSortor(Boolean[] array)
-	{
-		super(array);
-	}
-	
 	@Override
-	protected Object[] sort(int start, int end) {
+	protected Object[] sort(Object[] array, int start, int end) {
 		if (end - start <= 0)
 			return new Object[0];
 		Object flag = array[start];			//以第一个元素作为基准元素（比它小的放左边，大的放右边）
@@ -175,19 +25,19 @@ public class QuickSortor extends AbstractSortor {
 		{
 			if (MathTool.leftOneIsBigger(flag, array[i]))			//当前比较元素比基准元素小
 			{
-				exchange(left,i);
+				exchange(array, left,i);
 				left ++;
 			}
 			else							//当前比较元素比基准元素大
 			{
-				exchange(right,i);
+				exchange(array, right,i);
 				right --;
 				i --;					//由于exchange方法将一个未经过比较的元素移过来了，所以i要减一
 			}
 		}
 		array[left] = flag;				//左侧标记标记的元素改为基准元素
-		sort(start,left - 1);
-		sort(left + 1,end);
+		sort(array, start,left - 1);
+		sort(array, left + 1,end);
 		return array;
 	}
 }

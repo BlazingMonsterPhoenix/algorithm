@@ -12,168 +12,17 @@ import algorithmTool.math.mathTools.MathTool;
 public class MergeSortor extends AbstractSortor {
 	
 	/**
-	 * BigDecimal构造方法
-	 * @param array 准备进行排序的BigDecimal数组
+	 * 归并排序实现方法
 	 */
-	public MergeSortor(BigDecimal[] array) {
-		super(array);
-	}
-	
-	/**
-	 * 比特型构造方法
-	 * @param array 准备进行排序的比特型数组
-	 */
-	public MergeSortor(byte[] array)
-	{
-		super(array);
-	}
-	
-	/**
-	 * 短整型构造方法
-	 * @param array 准备进行排序的短整型数组
-	 */
-	public MergeSortor(short[] array)
-	{
-		super(array);
-	}
-	
-	/**
-	 * 整型构造方法
-	 * @param array 准备进行排序的整型数据
-	 */
-	public MergeSortor(int[] array)
-	{
-		super(array);
-	}
-	
-	/**
-	 * 长整型构造方法
-	 * @param array 准备进行排序的长整型数组
-	 */
-	public MergeSortor(long[] array)
-	{
-		super(array);
-	}
-	
-	/**
-	 * 浮点型构造方法
-	 * @param array 准备进行排序的浮点型数组
-	 */
-	public MergeSortor(float[] array)
-	{
-		super(array);
-	}
-	
-	/**
-	 * 双精度浮点型构造方法
-	 * @param array 准备进行排序的双精度浮点型数组
-	 */
-	public MergeSortor(double[] array)
-	{
-		super(array);
-	}
-	
-	/**
-	 * 字符型构造方法
-	 * @param array 准备进行排序的字符型数组
-	 */
-	public MergeSortor(char[] array)
-	{
-		super(array);
-	}
-	
-	/**
-	 * 布尔型构造方法
-	 * @param array 准备进行排序的布尔型数组
-	 */
-	public MergeSortor(boolean[] array)
-	{
-		super(array);
-	}
-	
-	/**
-	 * Byte构造方法
-	 * @param array 准备进行排序的Byte数组
-	 */
-	public MergeSortor(Byte[] array)
-	{
-		super(array);
-	}
-	
-	/**
-	 * Short构造方法
-	 * @param array 准备进行排序的Short数组
-	 */
-	public MergeSortor(Short[] array)
-	{
-		super(array);
-	}
-	
-	/**
-	 * Integer构造方法
-	 * @param array 准备进行排序的Integer数组
-	 */
-	public MergeSortor(Integer[] array)
-	{
-		super(array);
-	}
-	
-	/**
-	 * Long构造方法
-	 * @param array 准备进行排序的Long数组
-	 */
-	public MergeSortor(Long[] array)
-	{
-		super(array);
-	}
-	
-	
-	/**
-	 * Float构造方法
-	 * @param array 准备进行排序的Float数组
-	 */
-	public MergeSortor(Float[] array)
-	{
-		super(array);
-	}
-	
-	/**
-	 * Double构造方法
-	 * @param array 准备进行排序的Double数组
-	 */
-	public MergeSortor(Double[] array)
-	{
-		super(array);
-	}
-	
-	/**
-	 * Character构造方法
-	 * @param array 准备进行排序的Character数组
-	 */
-	public MergeSortor(Character[] array)
-	{
-		super(array);
-	}
-	
-	/**
-	 * Boolean构造方法
-	 * @param array 准备进行排序的Boolean数组
-	 */
-	public MergeSortor(Boolean[] array)
-	{
-		super(array);
-	}
-	
-	
 	@Override
-	protected Object[] sort(int start, int end) {
+	protected Object[] sort(Object[] array, int start, int end) {
 		int centre = (start + end) / 2;
 		if (end - start > 1)
 		{
-			sort(start, centre);
-			sort(centre + 1, end);
+			sort(array, start, centre);
+			sort(array, centre + 1, end);
 		}
-		merge(start, centre, end);
+		merge(array, start, centre, end);
 		return array;
 	}
 	
@@ -188,7 +37,7 @@ public class MergeSortor extends AbstractSortor {
 	 * @param centre 数组a左半部分最后一个元素的下标((start+end)/2)
 	 * @param end 归并部分的最后一个元素的下标
 	 */
-	private void merge(int start, int centre, int end)
+	private void merge(Object[] array, int start, int centre, int end)
 	{
 		Object newArray[] = new Object[end - start + 1];
 		int leftFlag = start;
