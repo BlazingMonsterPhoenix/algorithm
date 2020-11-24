@@ -1,10 +1,11 @@
 package algorithmTool.arrayTools.searcher;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import algorithmTool.arrayTools.Sortor.MergeSortor;
-import algorithmTool.arrayTools.Sortor.ShellSortor;
 import algorithmTool.arrayTools.reorderTool.ArrayReorderTool;
 import dataStructure.tree.TrinaryTree;
 
@@ -16,11 +17,111 @@ import dataStructure.tree.TrinaryTree;
  */
 public class ModeSearcher {
 	
+	/*************最强版本区***************/
+	
+	/**
+	 * 通过升级版计数法查找众数(Hash+计数)
+	 * @description 通过升级版计数法从数组中搜索众数，并以列表的形式返回<br>
+	 * 				利用HashMap，遍历一遍数组并记录下每种元素出现的次数<br>
+	 * 				时间复杂度为O(n)
+	 * @param array 数组
+	 * @return 带有所有众数的列表
+	 */
+	public static List<Object> searchByCountPlus(Object[] array)
+	{
+		List<Object> modeList = new ArrayList<Object>();
+		Map<Object,Integer> counter = new HashMap<Object,Integer>();
+		for (int i = 0; i < array.length; i ++)
+		{
+			if (!counter.containsKey(array[i])){
+				counter.put(array[i], 1);
+			}
+			else{
+				counter.put(array[i], counter.get(array[i]));
+			}
+		}
+		int max = 1;
+		for (Object key : counter.keySet())
+		{
+			if (counter.get(key) > max)
+			{
+				modeList.clear();
+				modeList.add(key);
+			}
+			else if (counter.get(key) == max){
+				modeList.add(key);
+			}
+		}
+		return modeList;
+	}
+	
+	
+	/*************常规思路区**************/
+	/*********正常人一般能想到的方法**********/
+	
+	/**
+	 * 通过计数法查找众数（普适版）
+	 * @description 通过计数法从数组中搜索众数，并以列表的形式返回<br>
+	 * 				先遍历一遍数组，记录出现过的元素<br>
+	 * 				然后使用searchByCount方法返回带有众数的列表
+	 * @param array 数组
+	 * @return 众数列表
+	 */
+	public static List<Object> search(Object[] array)
+	{
+		List<Object> roster = new ArrayList<Object>();
+		for (int i = 0; i < array.length; i ++)
+		{
+			if (!roster.contains(array[i])){
+				roster.add(array[i]);
+			}
+		}
+		return searchByCount(array, roster);
+	}
+	
+	/**
+	 * 通过计数法查找众数
+	 * @description 通过计数法从数组中搜索众数，并以列表的形式返回<br>
+	 *              计数法：传入一个“名单”，名单中记录数组中所有可能出现的元素<br>
+	 *              遍历数组，计算每种元素出现的次数，比较出现的次数
+	 * @param array 数组
+	 * @param roster 名单
+	 * @return 众数列表
+	 */
+	public static List<Object> searchByCount(Object[] array,List<Object> roster)
+	{
+		List<Object> modeList = new ArrayList<Object>();
+		int num[] = new int[roster.size()];
+		for (int i = 0; i < array.length; i ++)
+		{
+			int x = 0;
+			for (; x < roster.size(); x ++)
+			{
+				if (roster.get(x).equals(array[i])){
+					break;
+				}
+			}
+			num[x] ++;
+		}
+		num = new MergeSortor().sort(num);
+		for (int i = num.length - 1; i >= 0; i --)
+		{
+			if (num[i] == num[num.length - 1]){
+				modeList.add(num[i]);
+			}
+			else{
+				break;
+			}
+		}
+		return modeList;
+	}
+	
 	/**
 	 * 通过排序的方法查找众数
-	 * @description 从数组中搜索众数，并以列表的形式返回<br>
+	 * @deprecated 速度太慢，不建议使用
+	 * @description 通过排序方法从数组中搜索众数，并以列表的形式返回<br>
 	 * 				先将数组从小到大排序，然后顺序读取排序后的数组，记录每个元素出现的次数<br>
-	 * 				速度较快，稳定性好<br>
+	 * 				速度一般，稳定性好<br>
 	 * @param array 数组
 	 * @return 存有众数的列表
 	 */
@@ -55,14 +156,18 @@ public class ModeSearcher {
 		return modeList;
 	}
 	
+	/**************花里胡哨区****************/
+	/*************一些看起来很牛逼其实没什么卵用的方法********/
+	
 	/**
 	 * 使用“装车法”算法搜索众数
 	 * @date 2020/11/21
 	 * @author 周峥宇
+	 * @deprecated 速度太慢，且稳定性不好，不建议使用
 	 * @description 利用“装车法”算法从数组中搜索众数，并以列表的形式返回<br>
 	 * 				装车法：设置n辆车，这些车上装的每个元素必须都不相同；将数组中的元素依次放上车<br>
 	 * 				装完后，最后一辆车上的元素均为众数<br>
-	 * 				原创算法，速度较快，但是稳定性差<br>
+	 * 				原创算法，速度一般，且稳定性差<br>
 	 * 				适用于数组中元素种类数量比较有限；数组元素种类数量最好是已知的，并且出现频率比较相近的场景<br>
 	 * 				元素种类数量不清楚时，rosterLength可填array.length，但是效果不佳
 	 * @param array 数组

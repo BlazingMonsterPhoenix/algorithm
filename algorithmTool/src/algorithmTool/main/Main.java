@@ -1,5 +1,6 @@
 package algorithmTool.main;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import algorithmTool.arrayTools.Sortor.*;
@@ -18,30 +19,19 @@ public class Main {
 		int time = 0;
 		for (int t = 0; t < 50; t ++)
 		{
-			/**准备阶段**/
-			int a[] = new int[2000000];
+			int a[] = new int[500000];
 			for (int i = 0; i < a.length; i ++)
 			{
-				a[i] = (int)(Math.random() * 6);
+				a[i] = (int)(Math.random() * 50000);
 			}
-			Integer b[] = ConversionTool.ObjectArrayOf(a);
-			/**测试**/
+			Object b[] = ArrayReorderTool.disaster(ConversionTool.ObjectArrayOf(a));
 			long startTime = System.currentTimeMillis();
-			List<Object> modeList = ModeSearcher.searchByEntrucking(b,6);
+			List<Object> modeList = ModeSearcher.searchByCountPlus(b);
 			long endTime = System.currentTimeMillis();
-			time += endTime - startTime;
-			System.out.println("装车法找众数方法所用时间：" + (endTime - startTime) + "毫秒");
-			
-			/*startTime = System.currentTimeMillis();
-			modeList = ModeSearcher.searchByEntrucking(b, 6);
-			//List<Object> modeList = ModeSearcher.searchBySorting(b);
-			//new MergeSortor().sort(b);
-			endTime = System.currentTimeMillis();
-			time += endTime - startTime;
-			System.out.println("装车法找众数方法所用时间：" + (endTime - startTime) + "毫秒");*/
-			
+			System.out.println("升级版计数法找众数所花时间为：" + (endTime - startTime) + "毫秒");
+			time += (endTime - startTime);
 		}
-		System.out.println("\n装车法平均使用时间为" + time / 50);
+		System.out.println("\n\n升级版计数法找众数平均所花时间为：" + time / 50 + "毫秒");
 	}
 	
 }
