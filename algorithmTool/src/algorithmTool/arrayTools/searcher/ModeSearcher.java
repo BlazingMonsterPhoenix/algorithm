@@ -37,16 +37,17 @@ public class ModeSearcher {
 				counter.put(array[i], 1);
 			}
 			else{
-				counter.put(array[i], counter.get(array[i]));
+				counter.put(array[i], counter.get(array[i]) + 1);
 			}
 		}
-		int max = 1;
+		int max = 0;
 		for (Object key : counter.keySet())
 		{
 			if (counter.get(key) > max)
 			{
 				modeList.clear();
 				modeList.add(key);
+				max = counter.get(key);
 			}
 			else if (counter.get(key) == max){
 				modeList.add(key);
@@ -90,8 +91,10 @@ public class ModeSearcher {
 	 */
 	public static List<Object> searchByCount(Object[] array,List<Object> roster)
 	{
+		//众数列表
 		List<Object> modeList = new ArrayList<Object>();
 		int num[] = new int[roster.size()];
+		//遍历一遍数组，记录名单中的元素出现的次数
 		for (int i = 0; i < array.length; i ++)
 		{
 			int x = 0;
@@ -103,14 +106,17 @@ public class ModeSearcher {
 			}
 			num[x] ++;
 		}
-		num = new MergeSortor().sort(num);
-		for (int i = num.length - 1; i >= 0; i --)
+		//遍历一遍名单，将名单中出现次数最多的元素加入众数列表
+		for (int i = 0,max = 0; i < roster.size(); i ++)
 		{
-			if (num[i] == num[num.length - 1]){
-				modeList.add(num[i]);
+			if (num[i] > max)
+			{
+				modeList.clear();
+				modeList.add(roster.get(i));
+				max = num[i];
 			}
-			else{
-				break;
+			else if (num[i] == max){
+				modeList.add(roster.get(i));
 			}
 		}
 		return modeList;
@@ -208,11 +214,11 @@ public class ModeSearcher {
 	
 	/**
 	 * 将数组中下标为goodsId的元素按照“装车法”算法规则“装车”
-	 * @param array 
-	 * @param goodsId
-	 * @param trucks
-	 * @param numOfTrucks
-	 * @return
+	 * @param array 数组
+	 * @param goodsId 当前正在装车的“货物“id
+	 * @param trucks 卡车队列
+	 * @param numOfTrucks 当前装有货物的卡车数量
+	 * @return 货物装上的卡车的卡车编号
 	 */
 	private static int entruck(Object[] array, int goodsId, int[] trucks, int numOfTrucks, int fullTrucks,int rosterLength)
 	{
