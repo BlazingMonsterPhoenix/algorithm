@@ -1,4 +1,4 @@
-package algorithmTool.arrayTools.expander;
+package algorithmTool.arrayTools.auxiliaryTools;
 /**
  * 数组扩容器
  * @author BlazingPhoenix

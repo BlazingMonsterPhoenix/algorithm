@@ -1,4 +1,4 @@
-package algorithmTool.arrayTools.conversionTool;
+package algorithmTool.arrayTools.auxiliaryTools;
 
 /**
  * 数组转换工具

@@ -5,8 +5,8 @@ import java.util.List;
 
 import algorithmTool.arrayTools.Sortor.*;
 import algorithmTool.arrayTools.abstractSortor.AbstractSortor;
-import algorithmTool.arrayTools.conversionTool.ConversionTool;
-import algorithmTool.arrayTools.reorderTool.ArrayReorderTool;
+import algorithmTool.arrayTools.auxiliaryTools.ArrayReorderTool;
+import algorithmTool.arrayTools.auxiliaryTools.ConversionTool;
 import algorithmTool.arrayTools.searcher.ArrayElementSearcher;
 import algorithmTool.arrayTools.searcher.ModeSearcher;
 import algorithmTool.formula.caculator.Calculator;

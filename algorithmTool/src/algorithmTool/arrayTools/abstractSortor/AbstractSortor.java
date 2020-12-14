@@ -1,7 +1,7 @@
 package algorithmTool.arrayTools.abstractSortor;
 
 
-import algorithmTool.arrayTools.conversionTool.ConversionTool;
+import algorithmTool.arrayTools.auxiliaryTools.ConversionTool;
 import algorithmTool.math.mathTools.MathTool;
 
 /**

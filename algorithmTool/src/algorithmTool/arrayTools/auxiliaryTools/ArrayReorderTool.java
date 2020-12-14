@@ -1,4 +1,4 @@
-package algorithmTool.arrayTools.reorderTool;
+package algorithmTool.arrayTools.auxiliaryTools;
 /**
  * 数组重排序工具
  * @author BlazingPhoenix
