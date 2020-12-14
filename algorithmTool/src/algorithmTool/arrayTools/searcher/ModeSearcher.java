@@ -5,8 +5,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import algorithmTool.arrayTools.Sortor.MergeSortor;
 import algorithmTool.arrayTools.reorderTool.ArrayReorderTool;
+import algorithmTool.arrayTools.sortor.MergeSortor;
 import dataStructure.tree.TrinaryTree;
 
 /**
