@@ -1,16 +1,18 @@
-package dataStructure.tree;
+package dataStructure.tree.arrayTree;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 抽象n叉树
- * @description 所有n叉树的父类（远古巨树）
+ * 线性抽象n叉树
+ * @description 所有线性n叉树的父类（远古巨树）<br>
+ * 				底层用一维数组实现，查找速度快<br>
+ * 				但是随层数增长，存储空间指数级增长，容易出现OOM
  * @author BlazingPhoenix
  *
  */
-public abstract class AbstractNaryTree<E> {
+public abstract class AbstractArrayNaryTree<E> {
 	
 	//存储数据的类型
 	private Class<?> type;
@@ -24,7 +26,7 @@ public abstract class AbstractNaryTree<E> {
 	/**
 	 * 构造方法
 	 */
-	protected AbstractNaryTree()
+	protected AbstractArrayNaryTree()
 	{
 		root = 1;
 	}
@@ -78,7 +80,7 @@ public abstract class AbstractNaryTree<E> {
 	 * 				（寄生于另一棵树）
 	 * @param anotherTree 另一棵树
 	 */
-	protected void parasitize(AbstractNaryTree<E> anotherTree)
+	protected void parasitize(AbstractArrayNaryTree<E> anotherTree)
 	{
 		this.branch = anotherTree.branch;
 	}
@@ -91,8 +93,6 @@ public abstract class AbstractNaryTree<E> {
 	 */
 	protected class Branch
 	{
-		List<E> list = new ArrayList<E>();
-		
 		//初始化三层的n叉树
 		private E[] tree; //= createArray((int)Math.pow(bifurcation, 3) - 1);
 		private int size = 0;
@@ -143,7 +143,7 @@ public abstract class AbstractNaryTree<E> {
 		 */
 		private void extendIfNeedTo(int require)
 		{
-			if (require > size)
+			if (require >= size)
 			{
 				extend();
 			}

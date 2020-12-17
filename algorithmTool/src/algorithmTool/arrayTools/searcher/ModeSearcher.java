@@ -7,7 +7,7 @@ import java.util.Map;
 
 import algorithmTool.arrayTools.auxiliaryTools.ArrayReorderTool;
 import algorithmTool.arrayTools.sortor.MergeSortor;
-import dataStructure.tree.TrinaryTree;
+import dataStructure.tree.arrayTree.TrinaryTree;
 
 /**
  * 众数搜索类

@@ -1,4 +1,4 @@
-package dataStructure.tree;
+package dataStructure.tree.arrayTree;
 
 import algorithmTool.math.mathTools.MathTool;
 

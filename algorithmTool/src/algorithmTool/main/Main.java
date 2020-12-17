@@ -3,7 +3,7 @@ package algorithmTool.main;
 import java.util.ArrayList;
 import java.util.List;
 
-import dataStructure.tree.BinaryTree;
+import dataStructure.tree.arrayTree.ArrayBinaryTree;
 import algorithmTool.arrayTools.*;
 import algorithmTool.arrayTools.abstractSortor.AbstractSortor;
 import algorithmTool.arrayTools.auxiliaryTools.ArrayReorderTool;
@@ -18,7 +18,7 @@ public class Main {
 
 	public static void main(String[] args) {
 		
-		BinaryTree<Integer> root = new BinaryTree<Integer>();
+		/*BinaryTree<Integer> root = new BinaryTree<Integer>();
 		root.setContent(5);
 		
 		BinaryTree<Integer> leftTree = new BinaryTree<Integer>(2);
@@ -35,8 +35,26 @@ public class Main {
 		System.out.println(root.getLeft().getLeft().getContent());
 		System.out.println(root.getLeft().getRight().getContent());
 		System.out.println(root.getRight().getContent());
-		System.out.println(root.getRight().getRight().getContent());
+		System.out.println(root.getRight().getRight().getContent());*/
 		
+		ArrayBinaryTree<Integer> root = new ArrayBinaryTree<Integer>();
+		root.setContent(5);
+		ArrayBinaryTree<Integer> left = new ArrayBinaryTree<Integer>(5);
+		ArrayBinaryTree<Integer> tree = left;
+		
+		for (int i = 0; i < 27; i ++)
+		{
+			tree.setLeft(new ArrayBinaryTree<Integer>(6));
+			tree.setRight(new ArrayBinaryTree<Integer>(6));
+			tree = tree.getLeft();
+		}
+		
+		/*long startTime = System.currentTimeMillis();
+		root.setLeft(left);
+		long endTime = System.currentTimeMillis();
+		System.out.println("用时：" + (endTime - startTime) + "毫秒");
+		System.out.println(root.getLeft().getLeft().getContent());*/
+		System.out.println(Math.pow(2, 27));
 	}
 	
 }

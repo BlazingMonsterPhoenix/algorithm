@@ -1,4 +1,4 @@
-package dataStructure.tree;
+package dataStructure.tree.arrayTree;
 
 /**
  * 二叉树
@@ -6,12 +6,12 @@ package dataStructure.tree;
  * 
  * @param <E> 存储的数据的类型
  */
-public class BinaryTree<E> extends AbstractNaryTree<E> {
+public class ArrayBinaryTree<E> extends AbstractArrayNaryTree<E> {
 	
 	/**
 	 * 无参构造方法
 	 */
-	public BinaryTree()
+	public ArrayBinaryTree()
 	{
 		super();
 		//分叉数
@@ -24,7 +24,7 @@ public class BinaryTree<E> extends AbstractNaryTree<E> {
 	 * 新建二叉树并创建根节点
 	 * @param root 根节点的内容（数据）
 	 */
-	public BinaryTree(E root)
+	public ArrayBinaryTree(E root)
 	{
 		super();
 		//分叉数
@@ -38,12 +38,12 @@ public class BinaryTree<E> extends AbstractNaryTree<E> {
 	 * 获取左子树
 	 * @return 左子树
 	 */
-	public BinaryTree<E> getLeft()
+	public ArrayBinaryTree<E> getLeft()
 	{
 		if (root * 2 > branch.getSize() || branch.get(root * 2 - 1) == null) {
-			return new BinaryTree<E>();
+			return new ArrayBinaryTree<E>();
 		}
-		BinaryTree<E> subLeftTree = new BinaryTree<E>();
+		ArrayBinaryTree<E> subLeftTree = new ArrayBinaryTree<E>();
 		subLeftTree.parasitize(this);
 		subLeftTree.root = this.root * 2;
 		return subLeftTree;
@@ -53,12 +53,12 @@ public class BinaryTree<E> extends AbstractNaryTree<E> {
 	 * 获取右子数
 	 * @return 右子树
 	 */
-	public BinaryTree<E> getRight()
+	public ArrayBinaryTree<E> getRight()
 	{
 		if (root * 2 + 1 > branch.getSize() || branch.get(root * 2) == null) {
-			return new BinaryTree<E>();
+			return new ArrayBinaryTree<E>();
 		}
-		BinaryTree<E> subRightTree = new BinaryTree<E>();
+		ArrayBinaryTree<E> subRightTree = new ArrayBinaryTree<E>();
 		subRightTree.parasitize(this);
 		subRightTree.root = this.root * 2 + 1;
 		return subRightTree;
@@ -68,7 +68,7 @@ public class BinaryTree<E> extends AbstractNaryTree<E> {
 	 * 设置左子树
 	 * @param tree 左子树
 	 */
-	public void setLeft(BinaryTree<E> tree)
+	public void setLeft(ArrayBinaryTree<E> tree)
 	{
 		//设置的左子树为空且当前树的左子树为空
 		if (tree.isEmpty() && this.getLeft().isEmpty())
@@ -81,7 +81,7 @@ public class BinaryTree<E> extends AbstractNaryTree<E> {
 			E content = tree.branch.get(tree.root - 1);
 			this.branch.set(root * 2 - 1, content);
 			//设置左孩子节点的左右子树
-			BinaryTree<E> subLeftTree = this.getLeft();
+			ArrayBinaryTree<E> subLeftTree = this.getLeft();
 			subLeftTree.setLeft(tree.getLeft());
 			subLeftTree.setRight(tree.getRight());
 		}
@@ -91,7 +91,7 @@ public class BinaryTree<E> extends AbstractNaryTree<E> {
 	 * 设置左子树
 	 * @param tree 左子树
 	 */
-	public void setRight(BinaryTree<E> tree)
+	public void setRight(ArrayBinaryTree<E> tree)
 	{
 		//设置的右子树为空且当前树的右子树为空
 		if (tree.isEmpty() && this.getRight().isEmpty())
@@ -104,7 +104,7 @@ public class BinaryTree<E> extends AbstractNaryTree<E> {
 			E content = tree.branch.get(tree.root - 1);
 			this.branch.set(root * 2, content);
 			//设置右孩子节点的左右子树
-			BinaryTree<E> subLeftTree = this.getRight();
+			ArrayBinaryTree<E> subLeftTree = this.getRight();
 			subLeftTree.setLeft(tree.getLeft());
 			subLeftTree.setRight(tree.getRight());
 		}
