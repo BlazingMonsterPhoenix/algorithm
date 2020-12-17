@@ -132,6 +132,7 @@ public abstract class AbstractNaryTree<E> {
 				tree = createArray((int)Math.pow(bifurcation, 3) - 1);
 				this.size = tree.length;
 			}
+			extendIfNeedTo(index);
 			tree[index] = content;
 		}
 		
@@ -140,7 +141,7 @@ public abstract class AbstractNaryTree<E> {
 		 * @description 判断是否需要扩容，如果需要则进行扩容
 		 * @param require 需要的容量
 		 */
-		protected void extendIfNeedTo(int require)
+		private void extendIfNeedTo(int require)
 		{
 			if (require > size)
 			{

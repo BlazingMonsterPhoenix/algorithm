@@ -77,8 +77,6 @@ public class BinaryTree<E> extends AbstractNaryTree<E> {
 		}
 		else
 		{
-			//判断树是否需要扩容，如果需要则扩容
-			this.branch.extendIfNeedTo(root * 2 - 1);
 			//设置左孩子节点的内容
 			E content = tree.branch.get(tree.root - 1);
 			this.branch.set(root * 2 - 1, content);
@@ -102,8 +100,6 @@ public class BinaryTree<E> extends AbstractNaryTree<E> {
 		}
 		else
 		{
-			//判断树是否需要扩容，如果需要则扩容
-			this.branch.extendIfNeedTo(root * 2);
 			//设置右孩子节点的内容
 			E content = tree.branch.get(tree.root - 1);
 			this.branch.set(root * 2, content);
