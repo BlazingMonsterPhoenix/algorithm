@@ -17,7 +17,7 @@ public class BinaryTree<E> extends AbstractNaryTree<E> {
 		//分叉数
 		bifurcation = 2;
 		//初始化二叉树数据
-		tree = new Branch();
+		branch = new Branch();
 	}
 	
 	/**
@@ -30,38 +30,20 @@ public class BinaryTree<E> extends AbstractNaryTree<E> {
 		//分叉数
 		bifurcation = 2;
 		//初始化二叉树数据
-		tree = new Branch();
-		tree.set(0, root);
-	}
-	
-	/**
-	 * 判断当前树是否为空
-	 * @return 若是则返回true
-	 */
-	public boolean isEmpty()
-	{
-		return tree.get(root) == null;
-	}
-	
-	/**
-	 * 修改当前树的内容（数据）
-	 * @param content 内容
-	 */
-	public void setContent(E content)
-	{
-		tree.set(root, content);
+		branch = new Branch();
+		branch.set(0, root);
 	}
 	
 	/**
 	 * 获取左子树
 	 * @return 左子树
 	 */
-	public BinaryTree getLeft()
+	public BinaryTree<E> getLeft()
 	{
-		if (root * 2 < tree.getSize()) {
-			return null;
+		if (root * 2 > branch.getSize() || branch.get(root * 2 - 1) == null) {
+			return new BinaryTree<E>();
 		}
-		BinaryTree subLeftTree = new BinaryTree();
+		BinaryTree<E> subLeftTree = new BinaryTree<E>();
 		subLeftTree.parasitize(this);
 		subLeftTree.root = this.root * 2;
 		return subLeftTree;
@@ -71,14 +53,65 @@ public class BinaryTree<E> extends AbstractNaryTree<E> {
 	 * 获取右子数
 	 * @return 右子树
 	 */
-	public BinaryTree getRight()
+	public BinaryTree<E> getRight()
 	{
-		if (root * 2 + 1 < tree.getSize()) {
-			return null;
+		if (root * 2 + 1 > branch.getSize() || branch.get(root * 2) == null) {
+			return new BinaryTree<E>();
 		}
-		BinaryTree subLeftTree = new BinaryTree();
-		subLeftTree.parasitize(this);
-		subLeftTree.root = this.root * 2 + 1;
-		return subLeftTree;
+		BinaryTree<E> subRightTree = new BinaryTree<E>();
+		subRightTree.parasitize(this);
+		subRightTree.root = this.root * 2 + 1;
+		return subRightTree;
 	}
+	
+	/**
+	 * 设置左子树
+	 * @param tree 左子树
+	 */
+	public void setLeft(BinaryTree<E> tree)
+	{
+		//设置的左子树为空且当前树的左子树为空
+		if (tree.isEmpty() && this.getLeft().isEmpty())
+		{
+			return;
+		}
+		else
+		{
+			//判断树是否需要扩容，如果需要则扩容
+			this.branch.extendIfNeedTo(root * 2 - 1);
+			//设置左孩子节点的内容
+			E content = tree.branch.get(tree.root - 1);
+			this.branch.set(root * 2 - 1, content);
+			//设置左孩子节点的左右子树
+			BinaryTree<E> subLeftTree = this.getLeft();
+			subLeftTree.setLeft(tree.getLeft());
+			subLeftTree.setRight(tree.getRight());
+		}
+	}
+	
+	/**
+	 * 设置左子树
+	 * @param tree 左子树
+	 */
+	public void setRight(BinaryTree<E> tree)
+	{
+		//设置的右子树为空且当前树的右子树为空
+		if (tree.isEmpty() && this.getRight().isEmpty())
+		{
+			return;
+		}
+		else
+		{
+			//判断树是否需要扩容，如果需要则扩容
+			this.branch.extendIfNeedTo(root * 2);
+			//设置右孩子节点的内容
+			E content = tree.branch.get(tree.root - 1);
+			this.branch.set(root * 2, content);
+			//设置右孩子节点的左右子树
+			BinaryTree<E> subLeftTree = this.getRight();
+			subLeftTree.setLeft(tree.getLeft());
+			subLeftTree.setRight(tree.getRight());
+		}
+	}
+	
 }
