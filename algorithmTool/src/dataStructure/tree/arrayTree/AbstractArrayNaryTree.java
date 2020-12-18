@@ -41,11 +41,6 @@ public abstract class AbstractArrayNaryTree<E> {
         return (E[]) Array.newInstance(type, size);
     }
 	
-	public E[] getNodeList()
-	{
-		return this.branch.tree;
-	}
-	
 	/**
 	 * 判断当前树是否为空
 	 * @return 若是则返回true

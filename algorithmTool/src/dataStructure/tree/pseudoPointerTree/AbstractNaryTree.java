@@ -22,10 +22,21 @@ public abstract class AbstractNaryTree<E> {
 	protected int root;
 	
 	/**
+	 * @deprecated
+	 */
+	public void printNodes()
+	{
+		for (int i = 0; i < branch.getFlag(); i ++)
+		{
+			System.out.println("branch[" + i + "] = " + branch.tree[i].getContent());
+		}
+	}
+	
+	/**
 	 * 构造方法
 	 * @param bifurcation 树的分叉数
 	 */
-	protected AbstractNaryTree(int bifurcation)
+	protected AbstractNaryTree(int bifurcation)			//分支必须大于1，否则抛异常
 	{
 		this.bifurcation = bifurcation;
 		root = 0;
@@ -58,6 +69,7 @@ public abstract class AbstractNaryTree<E> {
 	public void setContent(E content)
 	{
 		TreeNode<E> node = new TreeNode<E>(content);
+		node.setBifurcation(bifurcation);
 		branch.set(node);
 	}
 	
@@ -67,6 +79,8 @@ public abstract class AbstractNaryTree<E> {
 	 */
 	public E getContent()
 	{
+		if (this.isEmpty())
+			return null;
 		return branch.get(root).getContent();
 	}
 	
@@ -89,12 +103,12 @@ public abstract class AbstractNaryTree<E> {
 	{
 		if (value > branch.getFlag())
 			return;
-		branch.get(root).setPseudoPointer(index, value);
 		if (value == branch.getFlag())
 		{
-			branch.extendIfNeedTo(value + 1);
+			branch.extendIfNeedTo(value);
 			branch.addFlag();
 		}
+		branch.get(root).setPseudoPointer(index, value);
 	}
 	
 	/**
@@ -116,7 +130,7 @@ public abstract class AbstractNaryTree<E> {
 	 */
 	protected class Branch
 	{
-		private TreeNode<E>[] tree;
+		public TreeNode<E>[] tree;
 		private int size = 0;
 		//当前tree数组用了多少
 		private int flag = 0;
@@ -127,7 +141,7 @@ public abstract class AbstractNaryTree<E> {
 		 */
 		private boolean isEmpty()
 		{
-			return tree == null || tree[root - 1] == null;
+			return tree == null || tree[root] == null;
 		}
 		
 		/**
@@ -157,9 +171,10 @@ public abstract class AbstractNaryTree<E> {
 				this.size = tree.length;
 			}
 			//extendIfNeedTo(flag);
-			//设置分叉数
 			content.setBifurcation(bifurcation);
+			//设置分叉数
 			tree[root] = content;
+			flag += flag == 0 ? 1 : 0;
 		}
 		
 		/**
