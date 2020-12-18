@@ -40,7 +40,7 @@ public class ArrayBinaryTree<E> extends AbstractArrayNaryTree<E> {
 	 */
 	public ArrayBinaryTree<E> getLeft()
 	{
-		if (root * 2 > branch.getSize() || branch.get(root * 2 - 1) == null) {
+		if (root * 2 > branch.getSize()) {
 			return new ArrayBinaryTree<E>();
 		}
 		ArrayBinaryTree<E> subLeftTree = new ArrayBinaryTree<E>();
@@ -55,7 +55,7 @@ public class ArrayBinaryTree<E> extends AbstractArrayNaryTree<E> {
 	 */
 	public ArrayBinaryTree<E> getRight()
 	{
-		if (root * 2 + 1 > branch.getSize() || branch.get(root * 2) == null) {
+		if (root * 2 + 1 > branch.getSize()) {
 			return new ArrayBinaryTree<E>();
 		}
 		ArrayBinaryTree<E> subRightTree = new ArrayBinaryTree<E>();
@@ -77,19 +77,20 @@ public class ArrayBinaryTree<E> extends AbstractArrayNaryTree<E> {
 		}
 		else
 		{
-			//设置左孩子节点的内容
-			E content = tree.branch.get(tree.root - 1);
-			this.branch.set(root * 2 - 1, content);
-			//设置左孩子节点的左右子树
 			ArrayBinaryTree<E> subLeftTree = this.getLeft();
+			//设置左孩子节点的内容
+			E content = tree.getContent();
+			subLeftTree.setContent(content);
+			//this.branch.set(root * 2 - 1, content);
+			//设置左孩子节点的左右子树
 			subLeftTree.setLeft(tree.getLeft());
 			subLeftTree.setRight(tree.getRight());
 		}
 	}
 	
 	/**
-	 * 设置左子树
-	 * @param tree 左子树
+	 * 设置右子树
+	 * @param tree 右子树
 	 */
 	public void setRight(ArrayBinaryTree<E> tree)
 	{
@@ -100,13 +101,14 @@ public class ArrayBinaryTree<E> extends AbstractArrayNaryTree<E> {
 		}
 		else
 		{
+			ArrayBinaryTree<E> subRightTree = this.getRight();
 			//设置右孩子节点的内容
-			E content = tree.branch.get(tree.root - 1);
-			this.branch.set(root * 2, content);
+			E content = tree.getContent();
+			subRightTree.setContent(content);
+			//this.branch.set(root * 2, content);
 			//设置右孩子节点的左右子树
-			ArrayBinaryTree<E> subLeftTree = this.getRight();
-			subLeftTree.setLeft(tree.getLeft());
-			subLeftTree.setRight(tree.getRight());
+			subRightTree.setLeft(tree.getLeft());
+			subRightTree.setRight(tree.getRight());
 		}
 	}
 	

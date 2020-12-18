@@ -71,6 +71,33 @@ public abstract class AbstractNaryTree<E> {
 	}
 	
 	/**
+	 * 获取指针
+	 * @param index 指针下标
+	 * @return 指针的值
+	 */
+	protected int getPointer(int index)
+	{
+		return branch.get(root).getPseudoPointer(index);
+	}
+	
+	/**
+	 * 设置指针
+	 * @param index 指针下标
+	 * @param value 指针的值
+	 */
+	public void setPointer(int index, int value)
+	{
+		if (value > branch.getFlag())
+			return;
+		branch.get(root).setPseudoPointer(index, value);
+		if (value == branch.getFlag())
+		{
+			branch.extendIfNeedTo(value + 1);
+			branch.addFlag();
+		}
+	}
+	
+	/**
 	 * 寄生
 	 * @description 使自身的数据与另一棵树的相同<br>
 	 * 				且自身的数据改变和它的数据改变会互相影响<br>
@@ -129,10 +156,10 @@ public abstract class AbstractNaryTree<E> {
 				tree = createArray((int)Math.pow(bifurcation, 3) - 1);
 				this.size = tree.length;
 			}
-			extendIfNeedTo(flag);
+			//extendIfNeedTo(flag);
 			//设置分叉数
 			content.setBifurcation(bifurcation);
-			tree[flag] = content;
+			tree[root] = content;
 		}
 		
 		/**
@@ -172,6 +199,11 @@ public abstract class AbstractNaryTree<E> {
 		protected int getFlag()
 		{
 			return this.flag;
+		}
+		
+		protected void addFlag()
+		{
+			flag ++;
 		}
 		
 	}

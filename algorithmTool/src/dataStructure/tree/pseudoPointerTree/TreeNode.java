@@ -36,6 +36,8 @@ public class TreeNode<E> {
 	/*public TreeNode(int bifurcation)
 	{
 		this.pseudoPointer = new int[bifurcation];
+		for (int i = 0; i < pseudoPointer.length; i ++)
+			pseudoPointer[i] = -1;
 	}*/
 	
 	/**
@@ -45,20 +47,28 @@ public class TreeNode<E> {
 	 */
 	public void setBifurcation(int bifurcation)
 	{
+		int flag = 0;
+		//当前指针列表不为空，新的指针列表保留原来的值
 		if (pseudoPointer != null && pseudoPointer.length > 0)
 		{
 			int[] newPointerList = new int[bifurcation];
 			int length = pseudoPointer.length < bifurcation ? pseudoPointer.length : bifurcation;
-			for (int i = 0; i < length; i ++)
+			int i = 0;
+			for (; i < length; i ++)
 			{
 				newPointerList[i] = pseudoPointer[i];
+				
 			}
 			pseudoPointer = newPointerList;
+			flag = i;
 		}
 		else
 		{
 			pseudoPointer = new int[bifurcation];
 		}
+		//-1表示空指针
+		for (int i = flag; i < pseudoPointer.length; i ++)
+			pseudoPointer[i] = -1;
 	}
 	
 	/**
