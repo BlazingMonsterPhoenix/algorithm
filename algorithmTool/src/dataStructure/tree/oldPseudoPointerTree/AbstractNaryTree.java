@@ -1,4 +1,4 @@
-package dataStructure.tree.pseudoPointerTree;
+package dataStructure.tree.oldPseudoPointerTree;
 
 import java.lang.reflect.Array;
 
@@ -15,7 +15,7 @@ public abstract class AbstractNaryTree<E> {
 	//存储数据的类型
 	private Class<?> type;
 	//枝条
-	protected Branch branch;
+	private Branch branch;
 	//分叉数
 	private int bifurcation;
 	//当前正在操作的树的根节点，在整棵树中的下标值+1
@@ -53,13 +53,19 @@ public abstract class AbstractNaryTree<E> {
         return (TreeNode<E>[]) Array.newInstance(type, size);
     }
 	
+	protected Branch getBranch()
+	{
+		this.branch.setRoot(root);
+		return branch;
+	}
+	
 	/**
 	 * 判断树是否为空
 	 * @return 若是，则返回true
 	 */
 	public boolean isEmpty()
 	{
-		return branch.isEmpty();
+		return getBranch().isEmpty();
 	}
 	
 	/**
@@ -70,7 +76,7 @@ public abstract class AbstractNaryTree<E> {
 	{
 		TreeNode<E> node = new TreeNode<E>(content);
 		node.setBifurcation(bifurcation);
-		branch.set(node);
+		getBranch().set(node);
 	}
 	
 	/**
@@ -81,7 +87,7 @@ public abstract class AbstractNaryTree<E> {
 	{
 		if (this.isEmpty())
 			return null;
-		return branch.get(root).getContent();
+		return getBranch().get(root).getContent();
 	}
 	
 	/**
@@ -91,7 +97,7 @@ public abstract class AbstractNaryTree<E> {
 	 */
 	protected int getPointer(int index)
 	{
-		return branch.get(root).getPseudoPointer(index);
+		return getBranch().get(root).getPseudoPointer(index);
 	}
 	
 	/**
@@ -101,6 +107,7 @@ public abstract class AbstractNaryTree<E> {
 	 */
 	public void setPointer(int index, int value)
 	{
+		getBranch();
 		if (value > branch.getFlag())
 			return;
 		if (value == branch.getFlag())
@@ -120,6 +127,7 @@ public abstract class AbstractNaryTree<E> {
 	 */
 	protected void parasitize(AbstractNaryTree<E> anotherTree)
 	{
+		getBranch();
 		this.branch = anotherTree.branch;
 	}
 	
@@ -130,10 +138,11 @@ public abstract class AbstractNaryTree<E> {
 	 */
 	protected class Branch
 	{
-		public TreeNode<E>[] tree;
+		private TreeNode<E>[] tree;
 		private int size = 0;
 		//当前tree数组用了多少
 		private int flag = 0;
+		private int root;
 		
 		/**
 		 * 判断当前树是否为空
@@ -141,7 +150,7 @@ public abstract class AbstractNaryTree<E> {
 		 */
 		private boolean isEmpty()
 		{
-			return tree == null || tree[root] == null;
+			return tree == null || tree[this.root] == null;
 		}
 		
 		/**
@@ -153,7 +162,9 @@ public abstract class AbstractNaryTree<E> {
 		{
 			//防止数组越界
 			if (index > size || index < 0)
+			{
 				return null;
+			}
 			return tree[index];
 		}
 		
@@ -169,12 +180,18 @@ public abstract class AbstractNaryTree<E> {
 				type = content.getClass();
 				tree = createArray((int)Math.pow(bifurcation, 3) - 1);
 				this.size = tree.length;
+				this.root = 0;
 			}
 			//extendIfNeedTo(flag);
-			content.setBifurcation(bifurcation);
 			//设置分叉数
-			tree[root] = content;
+			content.setBifurcation(bifurcation);
+			tree[this.root] = content;
 			flag += flag == 0 ? 1 : 0;
+		}
+		
+		protected void setRoot(int root)
+		{
+			this.root = root;
 		}
 		
 		/**

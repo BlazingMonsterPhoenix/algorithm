@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import dataStructure.tree.arrayTree.ArrayBinaryTree;
-import dataStructure.tree.pseudoPointerTree.BinaryTree;
+import dataStructure.tree.oldPseudoPointerTree.BinaryTree;
 import algorithmTool.arrayTools.*;
 import algorithmTool.arrayTools.abstractSortor.AbstractSortor;
 import algorithmTool.arrayTools.auxiliaryTools.ArrayReorderTool;

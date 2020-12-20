@@ -1,4 +1,4 @@
-package dataStructure.tree.pseudoPointerTree;
+package dataStructure.tree.oldPseudoPointerTree;
 
 import dataStructure.tree.arrayTree.ArrayBinaryTree;
 
@@ -15,7 +15,7 @@ public class BinaryTree<E> extends AbstractNaryTree<E> {
 	{
 		super(2);
 		TreeNode<E> rootNode = new TreeNode<E>(content);
-		branch.set(rootNode);
+		getBranch().set(rootNode);
 	}
 	
 	public void printPointList()
@@ -36,11 +36,13 @@ public class BinaryTree<E> extends AbstractNaryTree<E> {
 	{
 		int leftTreeRoot = this.getPointer(0);
 		//返回空树
-		if (leftTreeRoot >= branch.getFlag() || leftTreeRoot < 0) {
-			return new BinaryTree<E>();
+		if (leftTreeRoot >= getBranch().getFlag() || leftTreeRoot < 0) {
+			//判断左指针，若果为空则初始化
+			leftTreeRoot = leftTreeRoot >= 0 ? leftTreeRoot : getBranch().getFlag();
+			this.setPointer(0, leftTreeRoot);
 		}
 		BinaryTree<E> subLeftTree = new BinaryTree<E>();
-		subLeftTree.parasitize(this);			/**bug**/
+		subLeftTree.parasitize(this);			
 		//左子树的根等于当前节点的左伪指针指向的区域
 		subLeftTree.root = leftTreeRoot;
 		return subLeftTree;
@@ -54,11 +56,13 @@ public class BinaryTree<E> extends AbstractNaryTree<E> {
 	{
 		int rightTreeRoot = this.getPointer(1);
 		//返回空树
-		if (rightTreeRoot > branch.getFlag() || rightTreeRoot < 0) {
-			return new BinaryTree<E>();
+		if (rightTreeRoot >= getBranch().getFlag() || rightTreeRoot < 0) {
+			//判断右指针，若果为空则初始化
+			rightTreeRoot = rightTreeRoot >= 0 ? rightTreeRoot : getBranch().getFlag();
+			this.setPointer(0, rightTreeRoot);
 		}
 		BinaryTree<E> subRightTree = new BinaryTree<E>();
-		subRightTree.parasitize(this);			/**bug**/
+		subRightTree.parasitize(this);			
 		//左子树的根等于当前节点的左伪指针指向的区域
 		subRightTree.root = rightTreeRoot;
 		return subRightTree;
@@ -81,10 +85,6 @@ public class BinaryTree<E> extends AbstractNaryTree<E> {
 		}
 		else
 		{
-			//判断左指针，若果为空则初始化
-			int leftId = this.getPointer(0);
-			leftId = leftId >= 0 ? leftId : branch.getFlag();
-			this.setPointer(0, leftId);
 			//获取左子树
 			BinaryTree<E> subLeftTree = this.getLeft();
 			//设置左孩子节点的内容
@@ -113,15 +113,12 @@ public class BinaryTree<E> extends AbstractNaryTree<E> {
 		}
 		else
 		{
-			//判断右指针，如果为空则初始化
-			int rightId = this.getPointer(1);
-			rightId = rightId >= 0 ? rightId : branch.getFlag();
-			this.setPointer(1, rightId);
 			//获取右子树
 			BinaryTree<E> subRightTree = this.getRight();
 			//设置右孩子节点的内容
 			E content = tree.getContent();
-			subRightTree.setContent(content);
+			subRightTree.setContent(content);		/**bug**/
+			
 			//设置右孩子节点的左右子树
 			subRightTree.setLeft(tree.getLeft());
 			subRightTree.setRight(tree.getRight());
