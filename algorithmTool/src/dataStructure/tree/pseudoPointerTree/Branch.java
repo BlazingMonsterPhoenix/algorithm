@@ -40,9 +40,18 @@ public class Branch<E> {
 	 */
 	protected boolean isEmpty(int root)
 	{
-		return nodes == null || root >= size || nodes[root] == null;
+		return isNull(root) || nodes[root].getContent() == null;
 	}
 	
+	/**
+	 * 判断节点是否实例化
+	 * @param root 节点在数组中的下标
+	 * @return 若未实例化则返回true
+	 */
+	protected boolean isNull(int root)
+	{
+		return nodes == null || root >= size || nodes[root] == null;
+	}
 	
 	/**
      * 获取一个E类型的数组
@@ -95,7 +104,6 @@ public class Branch<E> {
 		{
 			type = node.getClass();
 			//初始化三层
-			System.out.println("size: " + (int)(Math.pow(bifurcation, 3) - 1));
 			nodes = createNodes((int)(Math.pow(bifurcation, 3) - 1));
 			this.length = nodes.length;
 		}
@@ -118,7 +126,7 @@ public class Branch<E> {
 	protected void setContent(E content, int root)
 	{
 		//单签节点未实例化，则不能设置内容。root为0则有可能是数组未初始化
-		if (isEmpty(root) && root != 0)
+		if (isNull(root) && root != 0)
 		{
 			return;				/**@Exception 抛出异常**/
 		}
@@ -143,7 +151,7 @@ public class Branch<E> {
 	 */
 	protected E getContent(int root)
 	{
-		if (root >= length || nodes[root] == null)
+		if (root >= length || root < 0 || nodes[root] == null)
 		{
 			return null;		/**@Exception 抛出异常**/
 		}

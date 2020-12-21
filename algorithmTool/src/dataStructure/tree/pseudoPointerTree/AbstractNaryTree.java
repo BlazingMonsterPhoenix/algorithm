@@ -12,9 +12,9 @@ package dataStructure.tree.pseudoPointerTree;
 public abstract class AbstractNaryTree<E> {
 	
 	//枝条
-	private Branch<E> branch;
+	protected Branch<E> branch;
 	//分叉数
-	private int bifurcation;
+	protected int bifurcation;
 	//当前正在操作的树的根节点，在整棵树中的下标值+1
 	protected int root;
 	
