@@ -1,15 +1,16 @@
 package dataStructure.tree.pseudoPointerTree;
 /**
  * 伪指针树节点
- * @author BlazingPhoenix
- * ——————————————
- *|   content    |  数据部分
- * ——————————————
- *|pseudoPointer0|  伪指针列表部分
- * --------------
- *|pseudoPointer1|
- *----------------
- * pseudoPointer n
+ * @author BlazingPhoenix<br>
+ * @map 图示<br>
+ * ——————————————	<br>
+ *|   content    |  数据部分<br>
+ * ——————————————	<br>
+ *|pseudoPointer0|  伪指针列表部分<br>
+ * --------------	<br>
+ *|pseudoPointer1|	<br>
+ *----------------	<br>
+ * pseudoPointer n	<br>
  */
 public class TreeNode<E> {
 	//数据

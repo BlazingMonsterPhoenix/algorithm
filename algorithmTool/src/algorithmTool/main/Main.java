@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import dataStructure.tree.arrayTree.ArrayBinaryTree;
-import dataStructure.tree.oldPseudoPointerTree.BinaryTree;
+import dataStructure.tree.pseudoPointerTree.AbstractNaryTree;
 import algorithmTool.arrayTools.*;
 import algorithmTool.arrayTools.abstractSortor.AbstractSortor;
 import algorithmTool.arrayTools.auxiliaryTools.ArrayReorderTool;
@@ -18,8 +18,18 @@ import algorithmTool.math.mathTools.MathTool;
 public class Main {
 
 	public static void main(String[] args) {
+
+		/*AbstractNaryTree<Integer> root = new AbstractNaryTree<Integer>(2);
+		root.setContent(5);
+		root.createSubIfSubIsNull(0);
+		root.getSubTree(0).setContent(6);
+		root.getSubTree(0).getSubTree(0).setContent(7);
+		System.out.println(root.getContent());
+		System.out.println(root.getSubTree(0).getContent());
+		System.out.println(root.getSubTree(0).getSubTree(0).getContent());*/
 		
-		BinaryTree<Integer> root = new BinaryTree<Integer>(5);
+		
+		/*BinaryTree<Integer> root = new BinaryTree<Integer>(5);
 		BinaryTree<Integer> leftTree = new BinaryTree<Integer>(2);
 		leftTree.setRight(new BinaryTree<Integer>(3));
 		leftTree.setLeft(new BinaryTree<Integer>(1));
@@ -34,7 +44,7 @@ public class Main {
 		System.out.println(root.getLeft().getLeft().getContent());
 		System.out.println(root.getLeft().getRight().getContent());
 		System.out.println(root.getRight().getContent());
-		System.out.println(root.getRight().getRight().getContent());
+		System.out.println(root.getRight().getRight().getContent());*/
 		
 		
 		/*ArrayBinaryTree<Integer> root = new ArrayBinaryTree<Integer>();
