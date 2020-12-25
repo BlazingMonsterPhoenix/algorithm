@@ -1,5 +1,14 @@
 package dataStructure.tree.pseudoPointerTree;
-
+/**
+ * 伪指针二叉树
+ * @author BlazingPhoenix
+ * @optimization 待优化点：<br>
+ * 				 setLeft和setRight方法,如果set一个较大的树<br>
+ * 				   容易出现StackOverflowError问题,原因是递归层数过多，方法栈溢出<br>
+ * 				   优化方法：<br>
+ * 				   尝试改作循环
+ * @param <E> 二叉树节点内存储的数据
+ */
 public class BinaryTree<E> extends AbstractNaryTree<E>{
 
 	/**
@@ -49,9 +58,8 @@ public class BinaryTree<E> extends AbstractNaryTree<E>{
 	/**
 	 * 设置左子树
 	 * @param tree 左子树
-	 * @deprecated 存在bug，待检查
 	 */
-	private void setLeft(BinaryTree<E> tree)
+	public void setLeft(BinaryTree<E> tree)
 	{
 		BinaryTree<E> leftTree = getLeft();
 		if (leftTree.isEmpty() && tree.isEmpty())
@@ -69,11 +77,10 @@ public class BinaryTree<E> extends AbstractNaryTree<E>{
 	/**
 	 * 设置右子树
 	 * @param tree 右子树
-	 * @deprecated 存在bug，待检查
 	 */
-	private void setRight(BinaryTree<E> tree)
+	public void setRight(BinaryTree<E> tree)
 	{
-		BinaryTree<E> rightTree = getLeft();
+		BinaryTree<E> rightTree = getRight();
 		if (rightTree.isEmpty() && tree.isEmpty())
 		{
 			return;

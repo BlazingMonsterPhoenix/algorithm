@@ -6,6 +6,7 @@ import java.util.List;
 import dataStructure.tree.arrayTree.ArrayBinaryTree;
 import dataStructure.tree.pseudoPointerTree.AbstractNaryTree;
 import dataStructure.tree.pseudoPointerTree.BinaryTree;
+import dataStructure.tree.pseudoPointerTree.CompleteBinaryTree;
 import algorithmTool.arrayTools.*;
 import algorithmTool.arrayTools.abstractSortor.AbstractSortor;
 import algorithmTool.arrayTools.auxiliaryTools.ArrayReorderTool;
@@ -16,52 +17,109 @@ import algorithmTool.formula.caculator.Calculator;
 import algorithmTool.formula.exception.FormulaException;
 import algorithmTool.math.mathTools.MathTool;
 
+////////////////////////////////////////////////////////////////////
+//					  _ooOoo_                               //
+//					 o8888888o                              //
+//					 88" . "88                              //
+//					 (| ^_^ |)                              //
+//					 O\  =  /O                              //
+//				  ____/`---'\____                           //
+//				.'  \\|     |//  `.                         //
+//			   /  \\|||  :  |||//  \                        //
+//			  /  _||||| -:- |||||-  \                       //
+//			  |   | \\\  -  /// |   |                       //
+//			  | \_|  ''\---/''  |   |                       //
+//			  \  .-\__  `-`  ___/-. /                       //
+//			___`. .'  /--.--\  `. . ___                     //
+//		  ."" '<  `.___\_<|>_/___.'  >'"".                  //
+//		| | :  `- \`.;`\ _ /`;.`/ - ` : | |                 //
+//		\  \ `-.   \_ __\ /__ _/   .-` /  /                 //
+//========`-.____`-.___\_____/___.-`____.-'========         //
+//`=---='                              //
+//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^        //
+//		佛祖保佑       永无BUG     	    一次测通     抢到红包				    //
+////
+////////////////////////////////////////////////////////////////////
 public class Main {
 
 	public static void main(String[] args) {
 		
-		BinaryTree<Integer> root = new BinaryTree<Integer>(5);
-		root.getLeft().setContent(2);
-		root.getLeft().getRight().setContent(3);
-		root.getLeft().getLeft().setContent(1);
-		root.getRight().setContent(6);
-		root.getRight().getRight().setContent(8);
+		/*CompleteBinaryTree<Integer> root = new CompleteBinaryTree<Integer>(1);
+		for (int i = 2; i < 11; i ++)
+		{
+			root.addNode(i);
+		}
+		System.out.println(root.getContent());
+		System.out.println(root.getLeft().getContent());
+		System.out.println(root.getRight().getContent());
+		System.out.println(root.getLeft().getLeft().getContent());
+		System.out.println(root.getLeft().getRight().getContent());
+		System.out.println(root.getRight().getLeft().getContent());
+		System.out.println(root.getRight().getRight().getContent());
+		/*BinaryTree<Integer> root = new BinaryTree<Integer>(5);
 		
-		/*BinaryTree<Integer> leftTree = new BinaryTree<Integer>(2);
+		BinaryTree<Integer> leftTree = new BinaryTree<Integer>(2);
 		leftTree.setRight(new BinaryTree<Integer>(3));
 		leftTree.setLeft(new BinaryTree<Integer>(1));
 		root.setLeft(leftTree);
 		
 		BinaryTree<Integer> rightTree = new BinaryTree<Integer>(6);
 		rightTree.setRight(new BinaryTree<Integer>(8));
-		root.setRight(rightTree);*/
+		root.setRight(rightTree);
 		
 		System.out.println(root.getContent());
 		System.out.println(root.getLeft().getContent());
 		System.out.println(root.getLeft().getLeft().getContent());
 		System.out.println(root.getLeft().getRight().getContent());
 		System.out.println(root.getRight().getContent());
-		System.out.println(root.getRight().getRight().getContent());
+		System.out.println(root.getRight().getRight().getContent());*/
 		
 		
-		/*ArrayBinaryTree<Integer> root = new ArrayBinaryTree<Integer>();
+		/*BinaryTree<Integer> root = new BinaryTree<Integer>();
 		root.setContent(5);
-		ArrayBinaryTree<Integer> left = new ArrayBinaryTree<Integer>(5);
-		ArrayBinaryTree<Integer> tree = left;
+		BinaryTree<Integer> left = new BinaryTree<Integer>(5);
+		BinaryTree<Integer> tree = left;
 		
-		for (int i = 0; i < 27; i ++)
+		long startTime = System.currentTimeMillis();
+		
+		for (int i = 0; i < 1000000; i ++)
 		{
-			tree.setLeft(new ArrayBinaryTree<Integer>(6));
-			tree.setRight(new ArrayBinaryTree<Integer>(6));
+			tree.setLeft(new BinaryTree<Integer>(6));
+			tree.setRight(new BinaryTree<Integer>(6));
 			tree = tree.getLeft();
-		}*/
+		}
 		
-		/*long startTime = System.currentTimeMillis();
-		root.setLeft(left);
+		
+		//root.setLeft(left);
 		long endTime = System.currentTimeMillis();
-		System.out.println("用时：" + (endTime - startTime) + "毫秒");
-		System.out.println(root.getLeft().getLeft().getContent());*/
+		System.out.println("用时：" + (endTime - startTime) + "毫秒");*/
+		//System.out.println(root.getLeft().getLeft().getContent());
+		//System.out.println(root.getLeft().getLeft().getLeft().getContent());
 		//System.out.println(Math.pow(2, 27));
 	}
 	
 }
+
+/**
+* 　　　　　　　　┏┓　　　┏┓+ +
+* 　　　　　　　┏┛┻━━━┛┻┓ + +
+* 　　　　　　　┃　　　　　　　┃
+* 　　　　　　　┃　　　━　　　┃ ++ + + +
+* 　　　　　　     ████━████┃+
+* 　　　　　　　┃　　　　　　　┃ +
+* 　　　　　　　┃　　　┻　　　┃
+* 　　　　　　　┃　　　　　　　┃ + +
+* 　　　　　　　┗━┓　　　┏━┛
+* 　　　　　　　　　┃　　　┃
+* 　　　　　　　　　┃　　　┃ + + + +
+* 　　　　　　　　　┃　　　┃　　　　 Code is far away from bug with the animal protecting
+* 　　　　　　　　　┃　　　┃ + 　　　　神兽保佑,代码无 bug
+* 　　　　　　　　　┃　　　┃
+* 　　　　　　　　　┃　　　┃　　+
+* 　　　　　　　　　┃　 　　┗━━━┓ + +
+* 　　　　　　　　　┃ 　　　　　　　┣┓
+* 　　　　　　　　　┃ 　　　　　　　┏┛
+* 　　　　　　　　　┗┓┓┏━┳┓┏┛ + + + +
+* 　　　　　　　　　　┃┫┫　┃┫┫
+* 　　　　　　　　　　┗┻┛　┗┻┛+ + + +
+*/

@@ -33,6 +33,25 @@ public class Branch<E> {
 		this.bifurcation = bifurcation;
 	}
 	
+	/**
+	 * 获取当前的节点数
+	 * @return 节点数
+	 */
+	protected int getSize()
+	{
+		return this.size;
+	}
+	
+	protected void deleteSize()
+	{
+		this.size --;
+	}
+	
+	protected void addSize()
+	{
+		extendIfNeedTo(size);
+		this.size ++;
+	}
 	
 	/**
 	 * 判断以root为根的枝条是否为空
@@ -69,7 +88,7 @@ public class Branch<E> {
 	 * @description 判断数组是否需要扩容，如果需要，则扩容
 	 * @param root 当前将要操作的节点在数组中的下标
 	 */
-	private void extendIfNeedTo(int root)
+	protected void extendIfNeedTo(int root)
 	{
 		if (root >= this.length)
 		{
@@ -128,6 +147,7 @@ public class Branch<E> {
 		//单签节点未实例化，则不能设置内容。root为0则有可能是数组未初始化
 		if (isNull(root) && root != 0)
 		{
+			//throw new NullPointerException();
 			return;				/**@Exception 抛出异常**/
 		}
 		//数组已初始化且节点已实例化
@@ -151,9 +171,13 @@ public class Branch<E> {
 	 */
 	protected E getContent(int root)
 	{
-		if (root >= length || root < 0 || nodes[root] == null)
+		if (root >= size || root < 0)
 		{
 			return null;		/**@Exception 抛出异常**/
+		}
+		if (nodes[root] == null)
+		{
+			return null;
 		}
 		return nodes[root].getContent();
 	}
@@ -161,6 +185,9 @@ public class Branch<E> {
 	
 	/**
 	 * 设置指定节点的伪指针
+	 * @description 将数组中下标为root的节点的指针列表中<br>
+	 * 				下标为index的指针，设置为指向数组中下标为value的节点<br>
+	 * 				并根据value的大小判断是否需要对数组扩容，如果
 	 * @param root 节点在数组中的下标
 	 * @param index 伪指针在指针列表中的下标
 	 * @param value 伪指针的值（指向数组中下标与此一致的元素）
@@ -173,8 +200,12 @@ public class Branch<E> {
 		}
 		if (value > size)
 		{
+			return;				/**@Exception 抛出异常：数组中不允许存在不加以利用的元素**/
+		}
+		if (value == size)
+		{
 			extendIfNeedTo(size);
-			value = size;
+			//value = size;
 			size ++;
 		}
 		nodes[root].setPointer(index, value);

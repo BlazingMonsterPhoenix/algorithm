@@ -26,7 +26,7 @@ public abstract class AbstractNaryTree<E> {
 	{
 		this.bifurcation = bifurcation;
 		this.root = 0;
-		branch = new Branch(bifurcation);
+		branch = new Branch<E>(bifurcation);
 	}
 	
 	
